@@ -27,4 +27,13 @@ public class WifiReadings extends SocketMessageObject{
         this.wifiReadings = wifiReadings;
     }
     
+    public void addWifiReadings(WifiReadings wRs){
+        for(WifiReading wifiReading: wifiReadings){
+            for(WifiReading wR: wRs.getWifiReadings()){
+                if(wifiReading.equals(wR))
+                    wifiReading.addWifiReading(wR);
+            }
+        }
+    }
+    
 }

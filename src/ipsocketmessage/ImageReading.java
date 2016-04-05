@@ -13,6 +13,7 @@ import socketmessage.SocketMessageObject;
  */
 public class ImageReading extends SocketMessageObject{
     private byte[] image;
+    private int[] size;
 
     public byte[] getImage() {
         return image;
@@ -20,6 +21,14 @@ public class ImageReading extends SocketMessageObject{
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public int[] getSize() {
+        return size;
+    }
+
+    public void setSize(int[] size) {
+        this.size = size;
     }
     
 }

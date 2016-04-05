@@ -16,12 +16,12 @@ public class ARMarkerReading extends SocketMessageObject{
     private int direction;
     private double [][] vertex;
     private double [][] transMat;
-    private double [][] cameraTransMat;
+    //private double [][] cameraTransMat;
 
     public ARMarkerReading() {
         vertex = new double[4][2];
         transMat = new double[3][4];
-        cameraTransMat = new double[3][4];
+        //cameraTransMat = new double[3][4];
     }
     
     public void addReading(ARMarkerReading arMarkerReading){
@@ -40,9 +40,9 @@ public class ARMarkerReading extends SocketMessageObject{
             for(int j = 0; j< transMat[0].length; j++)
                 transMat[i][j] = (int)((transMat[i][j]+arMarkerReading.transMat[i][j])/2.0);
         
-        for(int i = 0; i< cameraTransMat.length; i++)
-            for(int j = 0; j< cameraTransMat[0].length; j++)
-                cameraTransMat[i][j] = (int)((cameraTransMat[i][j]+arMarkerReading.cameraTransMat[i][j])/2.0);
+//        for(int i = 0; i< cameraTransMat.length; i++)
+//            for(int j = 0; j< cameraTransMat[0].length; j++)
+//                cameraTransMat[i][j] = (int)((cameraTransMat[i][j]+arMarkerReading.cameraTransMat[i][j])/2.0);
         
     }
 
@@ -78,13 +78,13 @@ public class ARMarkerReading extends SocketMessageObject{
         this.transMat = transMat;
     }
 
-    public double[][] getCameraTransMat() {
-        return cameraTransMat;
-    }
-
-    public void setCameraTransMat(double[][] cameraTransMat) {
-        this.cameraTransMat = cameraTransMat;
-    }
+//    public double[][] getCameraTransMat() {
+//        return cameraTransMat;
+//    }
+//
+//    public void setCameraTransMat(double[][] cameraTransMat) {
+//        this.cameraTransMat = cameraTransMat;
+//    }
 
     @Override
     public boolean equals(Object obj) {
