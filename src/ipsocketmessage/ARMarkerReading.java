@@ -17,6 +17,7 @@ public class ARMarkerReading extends SocketMessageObject{
     private double [][] vertex;
     private double [][] transMat;
     //private double [][] cameraTransMat;
+    private ImageReading imageReading;
 
     public ARMarkerReading() {
         vertex = new double[4][2];
@@ -92,6 +93,13 @@ public class ARMarkerReading extends SocketMessageObject{
         return aRMarkerReading.markerId == markerId;
         //return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
     }
-   
+
+    public ImageReading getImageReading() {
+        return imageReading;
+    }
+
+    public void setImageReading(ImageReading imageReading) {
+        this.imageReading = imageReading;
+    }
     
 }

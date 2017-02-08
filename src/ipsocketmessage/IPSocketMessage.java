@@ -12,5 +12,5 @@ import socketmessage.SocketMessage;
  * @author victor
  */
 public class IPSocketMessage extends SocketMessage{
-    
+   
 }

@@ -12,10 +12,11 @@ import socketmessage.SocketMessageObject;
  *
  * @author victor
  */
-public class WifiReadings extends SocketMessageObject{
+public class WifiReadings extends SocketMessageObject {
+
     private ArrayList<WifiReading> wifiReadings;
-    
-    public WifiReadings(){
+
+    public WifiReadings() {
         wifiReadings = new ArrayList<WifiReading>();
     }
 
@@ -26,14 +27,44 @@ public class WifiReadings extends SocketMessageObject{
     public void setWifiReadings(ArrayList<WifiReading> wifiReadings) {
         this.wifiReadings = wifiReadings;
     }
-    
-    public void addWifiReadings(WifiReadings wRs){
-        for(WifiReading wifiReading: wifiReadings){
-            for(WifiReading wR: wRs.getWifiReadings()){
-                if(wifiReading.equals(wR))
-                    wifiReading.addWifiReading(wR);
-            }
+
+    public void addWifiReadings(WifiReadings wRs) {
+        for (WifiReading wifiReading : wRs.getWifiReadings()) {
+            addWifiReading(wifiReading);
         }
     }
-    
+
+    public void addWifiReading(WifiReading wR) {
+        for (WifiReading wifiReading : wifiReadings) {
+            if (wifiReading.equals(wR)) {
+                wifiReading.addWifiReading(wR);
+                return;
+            }
+        }
+
+        wifiReadings.add(wR);
+    }
+
+    public int indexOf(WifiReading wR) {
+
+        for (int index = 0; index < wifiReadings.size(); index++) {
+            if (wifiReadings.get(index).equals(wR)) {
+                return index;
+            }
+        }
+
+        return -1;
+    }
+
+//    public boolean containes(WifiReading wR){
+//        boolean containes = false;
+//        
+//        for(WifiReading wifiReading: wifiReadings)
+//            if(wifiReading.equals(wR)){
+//                containes = true;
+//                break;
+//            }
+//                
+//        return containes;
+//    }
 }

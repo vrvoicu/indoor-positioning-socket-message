@@ -28,4 +28,16 @@ public class ARMarkerReadings extends SocketMessageObject{
         this.arMarkerReadings = arMarkerReadings;
     }
     
+    public boolean containes(ARMarkerReading arMR){
+        boolean containes = false;
+        
+        for(ARMarkerReading arMarkerReading: arMarkerReadings)
+            if(arMarkerReading.equals(arMR)){
+                containes = true;
+                break;
+            }
+                
+        return containes;
+    }
+    
 }

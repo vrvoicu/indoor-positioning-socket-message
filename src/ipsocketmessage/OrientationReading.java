@@ -15,7 +15,6 @@ public class OrientationReading extends SocketMessageObject{
     private float azimuth;
     private float pitch;
     private float roll;
-    private int session;
 
     public OrientationReading(float azimuth, float pitch, float roll) {
         this.azimuth = azimuth;
@@ -51,14 +50,6 @@ public class OrientationReading extends SocketMessageObject{
 
     public void setRoll(float roll) {
         this.roll = roll;
-    }
-
-    public int getSession() {
-        return session;
-    }
-
-    public void setSession(int session) {
-        this.session = session;
     }
     
 }
