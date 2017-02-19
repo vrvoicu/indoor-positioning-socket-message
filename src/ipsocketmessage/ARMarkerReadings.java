@@ -28,16 +28,33 @@ public class ARMarkerReadings extends SocketMessageObject{
         this.arMarkerReadings = arMarkerReadings;
     }
     
-    public boolean containes(ARMarkerReading arMR){
-        boolean containes = false;
+    public void addArMakerReading(ARMarkerReading arMR){
+        int index = containes(arMR);
         
-        for(ARMarkerReading arMarkerReading: arMarkerReadings)
-            if(arMarkerReading.equals(arMR)){
-                containes = true;
-                break;
-            }
-                
-        return containes;
+        if(index == -1){
+            arMarkerReadings.add(arMR);
+            return;
+        }
+        
+        arMarkerReadings.get(index).addReading(arMR);
+    }
+    
+    public void addArMarkerReadings(ArrayList<ARMarkerReading> arMRs){
+        for(ARMarkerReading arMarkerReading: arMRs)
+            addArMakerReading(arMarkerReading);
+    }
+    
+    public void addArMarkerReadings(ARMarkerReadings arMRs){
+        addArMarkerReadings(arMRs.getArMarkerReadings());
+    }
+    
+    public int containes(ARMarkerReading arMR){
+        
+        for(int index = 0; index < arMarkerReadings.size(); index++)
+            if(arMarkerReadings.get(index).equals(arMR))
+                return index;
+        
+        return -1;
     }
     
 }
